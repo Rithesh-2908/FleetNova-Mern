@@ -1,7 +1,6 @@
 // Centralized API Client for FLEETNOVA REST Endpoints
 
-const BASE_URL = '/api';
-
+const BASE_URL = 'https://fleetnova-mern.onrender.com/api';
 export async function apiRequest(endpoint, method = 'GET', data = null, customHeaders = {}) {
   const token = localStorage.getItem('fleetnova_token');
 
