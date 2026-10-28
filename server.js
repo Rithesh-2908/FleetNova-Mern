@@ -76,8 +76,20 @@ async function startServer() {
   }
 
   // Middleware
+  
+  // CORS Middleware
+  const corsOptions = {
+    origin: 'https://fleet-nova-xi.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  };
+
+  app.use(cors(corsOptions));
+
+  // Other middleware
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
+
 
   // REST API routes
   app.use('/api/auth', authRoutes);
